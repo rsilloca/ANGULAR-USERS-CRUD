@@ -1,0 +1,34 @@
+<!-- FORMULARIO PARA INGRESAR DATOS -->
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <input type="text" name="first_name" [(ngModel)]="user.first_name" placeholder="First Name" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="last_name" [(ngModel)]="user.last_name" placeholder="Last Name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="url" name="avatar" [(ngModel)]="user.avatar" placeholder="Photo" class="form-control">
+                </div>
+                <button class="btn btn-success btn-block" (click)="edit ? updateUser() : saveNewUser()">
+                    {{edit ? 'UPDATE' : 'SAVE'}}
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- PREVISUALIZACION DEL USUARIO -->
+<div class="col-md-3">
+    <div class="card card-body text-center">
+        <img [src]="user.avatar == '' ? '/assets/addPhoto.png' : user.avatar" class="card-img-top">
+        <h3>{{user.first_name == '' ? 'First Name' : user.first_name}} 
+            {{user.last_name == '' ? 'Last Name' : user.last_name}}</h3>
+        <p>{{user.email == '' ? 'user@email.com' : user.email}}</p>
+    </div>
+</div>
